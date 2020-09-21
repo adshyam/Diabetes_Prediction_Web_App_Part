@@ -1,0 +1,36 @@
+ 
+{% extends 'appdiabetis/master.html' %}
+
+{% block input %}
+
+<div class="container mt-5" id="container"> 
+     
+    <form  action="predict" method="POST">
+        {% csrf_token %}
+      <h1 class="font-weight-bold">Enter your medical data in the form below</h1>
+      <div class="social-container">
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-linkedin"></a>
+          <a href="#" class="fa fa-youtube"></a>
+      </div>
+      <input type="number" name="pregency" placeholder="Enter Number of times you were pregnant"  required/>
+      <input type="number" name="glucose" placeholder="Enter your Glucose Level"  required/>
+      <input type="number" name="pressure" placeholder="Enter your Blood Pressure Level"  required/>
+      <input type="number" name="skin" placeholder="Enter your Skin Thickness"  required/>
+      <input type="number" name="insulin" placeholder="Enter your Insulin Level" required/>
+      <input type="number" name="bmi" placeholder="Enter your BMI level" required />
+      <input type="number" name="diabetis" placeholder="Enter your Diabetis Pedgree Function Value" required />
+      <input type="number" name="age" placeholder="Enter your Age Please" required />
+       
+      
+      <button class="btn btn-info btn-rounded">Predict My Diabetes</button>
+    </form>
+</div>
+{% for i in params %}
+<h4>{{i}}</h4>
+
+
+{% endfor %}
+    
+
+{% endblock %}

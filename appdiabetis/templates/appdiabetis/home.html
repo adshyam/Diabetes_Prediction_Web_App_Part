@@ -1,0 +1,76 @@
+{% extends 'appdiabetis/master.html' %}
+
+{% block home %}
+
+ 
+<div class=" py-4 text-center alert alert-success" role="alert">
+    Welcome to Diabetis Prediction Application
+  </div>
+ <div class="successbtn">
+  {% if message %}
+  <h4>{{message}}</h4>
+  {% endif  %}
+</div>
+  
+  
+   <div class="container mt-5" id="container">
+   
+     
+       <div class="form-container sign-up-container mt-2">
+        
+          
+         <form action="signup" method="POST">
+            
+            {% csrf_token %} 
+           <h1 class="font-weight-bold">Create Account</h1>
+           <div class="social-container">
+               <a href="#" class="fa fa-facebook"></a>
+               <a href="#" class="fa fa-linkedin"></a>
+               <a href="#" class="fa fa-youtube"></a>
+           </div>
+           <input type="text" name="fullName" placeholder="Full name" />
+           <input type="email" name="email" placeholder="Email" />
+           <input type="password"  name='password' placeholder="Password" />
+           <input type="password" name="passwordagain" placeholder="Confirm Password" />
+           <button class="btn btn-info btn-rounded">Sign up</button>
+         </form>
+       </div>
+   
+       <div class="form-container sign-in-container">
+         <form action="login" method="POST">
+
+            {% csrf_token %} 
+           <h1 class="font-weight-bold">Sign in</h1>
+           <div class="social-container">
+               <a href="#" class="fa fa-facebook"></a>
+               <a href="#" class="fa fa-linkedin"></a>
+               <a href="#" class="fa fa-youtube"></a>
+           </div>
+           <span>or use your account</span>
+           <input type="email"  name= 'email' placeholder="Email" />
+           <input type="password" name="password" placeholder="Password" />
+           <button class="btn btn-info btn-rounded ">Sign In</button>
+         </form>
+       </div>
+   
+       <div class="overlay-container">
+         <div class="overlay">
+           <div class="overlay-panel overlay-left">
+             <h1 class="font-weight-bold">Good to see you!<h1>
+             <p>You already have an account? <br>Sign in!</p>
+             <button class="but" id="signIn">Sign In</button>
+           </div>
+           <div class="overlay-panel overlay-right">
+             <h1 class="font-weight-bold">Hello, Friend!</h1>
+             <p>You don't have account yet? Don't worry! You still can join us</p>
+             <button class="but" id="signUp">Sign Up</button>
+           </div>
+         </div>
+       </div>
+     </div>
+   
+     {% endblock %}
+     
+
+
+
