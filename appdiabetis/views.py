@@ -3,11 +3,13 @@ from django.http import HttpResponse
 import pandas as pd
 from django.contrib.auth.models import User
 from django.contrib import auth
+import numpy as np
+
 
 
 import joblib
 
-model=joblib.load("./model/Joblib_model")
+model=joblib.load("./MOdelStore/model")
 
 
 # Create your views here.
@@ -55,7 +57,7 @@ def login(request):
             auth.login(request,user)
             return render(request, 'appdiabetis/input.html')
         else:
-            return render(request, 'appdiabetis/home.html',{'message':'the user does not exist! Register Now!'})
+            return render(request, 'appdiabetis/home.html',{'message':'User Credential does not match'})
     else:
          return render(request, 'appdiabetis/home.html')
 
@@ -86,9 +88,15 @@ def predict(request):
     else:
         return render(request, 'appdiabetis/input.html')
 
-    testing=pd.DataFrame({'x':temp}).transpose()
-    result=model.predict(testing)
-    print(result[0][0])
-
-    params={'default':'yours likelyhood of having Diabetis is', 'price': result[0][0]}
-    return render(request,'appdiabetis/input.html',params)
+    # testing=pd.DataFrame({'x':temp}).transpose()
+    testing=pd.DataFrame([temp])
+    result=model.predict_proba(testing)
+    # print("hte result is ",result)
+    for i in result:
+         
+        noDiabetis=np.around(i[0],3)
+        yesDiabetis=(np.around(i[1],3))*100
+    params={'no': noDiabetis,'yes':yesDiabetis}
+     
+    return render(request,'appdiabetis/input.html',{'params':yesDiabetis})
+     

@@ -13,24 +13,37 @@
           <a href="#" class="fa fa-linkedin"></a>
           <a href="#" class="fa fa-youtube"></a>
       </div>
-      <input type="number" name="pregency" placeholder="Enter Number of times you were pregnant"  required/>
-      <input type="number" name="glucose" placeholder="Enter your Glucose Level"  required/>
-      <input type="number" name="pressure" placeholder="Enter your Blood Pressure Level"  required/>
-      <input type="number" name="skin" placeholder="Enter your Skin Thickness"  required/>
-      <input type="number" name="insulin" placeholder="Enter your Insulin Level" required/>
-      <input type="number" name="bmi" placeholder="Enter your BMI level" required />
-      <input type="number" name="diabetis" placeholder="Enter your Diabetis Pedgree Function Value" required />
-      <input type="number" name="age" placeholder="Enter your Age Please" required />
+      <input type="number"  step="any" name="pregency" placeholder="Enter Number of times you were pregnant"  required/>
+      <input type="number" step="any" name="glucose" placeholder="Enter your Glucose Level"  required/>
+      <input type="number" step="any" name="pressure" placeholder="Enter your Blood Pressure Level"  required/>
+      <input type="number" step="any" name="skin" placeholder="Enter your Skin Thickness"  required/>
+      <input type="number" step="any" name="insulin" placeholder="Enter your Insulin Level" required/>
+      <input type="number" step="any" name="bmi" placeholder="Enter your BMI level" required />
+      <input type="number" step="any" name="diabetis" placeholder="Enter your Diabetis Pedgree Function Value" required />
+      <input type="number" step="any" name="age" placeholder="Enter your Age Please" required />
        
       
       <button class="btn btn-info btn-rounded">Predict My Diabetes</button>
     </form>
 </div>
-{% for i in params %}
-<h4>{{i}}</h4>
 
-
-{% endfor %}
     
 
 {% endblock %}
+
+
+{% block display %}
+
+{%if params %}
+<div class="alert alert-success text-center "  role="alert">
+    <h4>Your probability of having diabetis is: {{params}} %</h4> 
+
+</div>
+
+ 
+{% endif %}
+
+
+
+{% endblock %}
+
