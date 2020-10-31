@@ -4,9 +4,6 @@ import pandas as pd
 from django.contrib.auth.models import User
 from django.contrib import auth
 import numpy as np
-
-
-
 import joblib
 
 model=joblib.load("./MOdelStore/model")
