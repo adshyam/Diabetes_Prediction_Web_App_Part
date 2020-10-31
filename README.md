@@ -1,3 +1,3 @@
-# diabetic-prediction-
-This project involves diabetics prediction web app build upon Machine Learning Model. The repo of Machine Learning part can be found in below link: 
-https://github.com/ghsagar/ML-part-Diabetic-prediction-app
+# Diabetes_Prediction_Web_App_Part
+This repository contains detailed web app part. It integrates with the Machine Learning Part to output the result.
+https://github.com/adshyam/Diabetes_Prediction_Machine_Learning-
